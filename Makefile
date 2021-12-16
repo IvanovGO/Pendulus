@@ -1,2 +1,2 @@
 all:
-	g++ main.cpp -o pend -Wall -Wpedantic -lm
+	g++ main.cpp vec.cpp -o pend -Wall -Wpedantic -lm

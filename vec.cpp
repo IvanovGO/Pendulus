@@ -1,7 +1,7 @@
 #include "vec.hpp"
 #include <stdio.h>
 #include <ostream>
-
+#include <math.h>
 
 
 void vec::print(){printf("x=%3.3f y=%3.3f z=%3.3f\n",this->x,this->y,this->z);}
@@ -29,6 +29,49 @@ vec vec::operator = (  int i){
 this->x=i;
 this->y=i;
 this->z=i;
+return *this;}
+
+
+vec vec::operator *= (  _v vec){
+this->x*=vec.x;
+this->y*=vec.y;
+this->z*=vec.z;
+return *this;}
+
+vec vec::operator *= ( float k){
+this->x*=k;
+this->y*=k;
+this->z*=k;
+return *this;}
+
+vec vec::operator *= (  int i){
+this->x*=i;
+this->y*=i;
+this->z*=i;
+return *this;}
+
+vec vec::operator += (  _v vec){
+this->x+=vec.x;
+this->y+=vec.y;
+this->z+=vec.z;
+return *this;}
+
+vec vec::operator += (vec v){
+this->x+=v.x;
+this->y+=v.y;
+this->z+=v.z;
+return *this;}
+
+vec vec::operator += ( float k){
+this->x+=k;
+this->y+=k;
+this->z+=k;
+return *this;}
+
+vec vec::operator += (  int i){
+this->x+=i;
+this->y+=i;
+this->z+=i;
 return *this;}
 
 vec vec::mul(vec a, vec b){
@@ -88,5 +131,27 @@ a.y+=term;
 a.z+=term;
 return a;}
 
+vec operator / ( vec a, vec b)
+{a.x/=b.x;
+a.y/=b.y;
+a.z/=b.z;
+return a;}
+
+
+vec operator / ( vec a, double term)
+{a.x/=term;
+a.y/=term;
+a.z/=term;
+return a;}
+
+vec operator / ( vec a, int term)
+{a.x/=term;
+a.y/=term;
+a.z/=term;
+return a;}
+
+float vec::operator - (vec a){
+return sqrt(pow(this->x-a.x,2)+pow(this->y-a.y,2)+pow(this->z-a.z,2));
+}
 
 
